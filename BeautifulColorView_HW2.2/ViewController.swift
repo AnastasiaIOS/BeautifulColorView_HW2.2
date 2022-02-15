@@ -23,6 +23,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //View
+        viewMultiColor.layer.cornerRadius = viewMultiColor.frame.width / 8
+        
         //Sliders
         //Red
         sliderRed.value = 0.5
