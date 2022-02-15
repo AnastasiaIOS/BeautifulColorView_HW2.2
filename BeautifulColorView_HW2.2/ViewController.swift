@@ -51,6 +51,7 @@ class ViewController: UIViewController {
 
 
     @IBAction func lsliderDoesRed() {
+        
     }
     
     
