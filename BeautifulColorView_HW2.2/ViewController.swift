@@ -30,17 +30,17 @@ class ViewController: UIViewController {
         sliderRed.maximumValue = 1
         sliderRed.minimumTrackTintColor = .red
         
-        //Blue
-        sliderBlue.value = 0.5
-        sliderBlue.minimumValue = 0
-        sliderBlue.maximumValue = 1
-        sliderBlue.minimumTrackTintColor = .blue
-        
         //Green
         sliderGreen.value = 0.5
         sliderGreen.minimumValue = 0
         sliderGreen.maximumValue = 1
         sliderGreen.minimumTrackTintColor = .green
+        
+        //Blue
+        sliderBlue.value = 0.5
+        sliderBlue.minimumValue = 0
+        sliderBlue.maximumValue = 1
+        sliderBlue.minimumTrackTintColor = .blue
         
         //Label
         labelRed.text = String(sliderRed.value)
@@ -52,14 +52,22 @@ class ViewController: UIViewController {
 
     @IBAction func lsliderDoesRed() {
         
+        labelRed.text = String(sliderRed.value)
+        
     }
     
     
     @IBAction func lsliderDoesGreen() {
+        
+        labelGreen.text = String(sliderGreen.value)
+        
     }
     
     
     @IBAction func lsliderDoesBlue() {
+        
+        labelBlue.text = String(sliderBlue.value)
+        
     }
     
     
