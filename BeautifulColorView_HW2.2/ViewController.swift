@@ -23,8 +23,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //View
-        viewMultiColor.layer.cornerRadius = viewMultiColor.frame.width / 8
+       
+        
+    
         
         //Sliders
         //Red
@@ -50,27 +51,54 @@ class ViewController: UIViewController {
         labelBlue.text = String(sliderBlue.value)
         labelGreen.text = String(sliderGreen.value)
         
+        //View
+        viewMultiColor.layer.cornerRadius = viewMultiColor.frame.width / 8
+        
+        viewMultiColor.backgroundColor = UIColor(
+            red: CGFloat(sliderRed.value),
+            green: CGFloat(sliderGreen.value),
+            blue: CGFloat(sliderBlue.value),
+            alpha: 1)
+        
     }
-
-
+/*
+    var sliderFirst = CGFloat(sliderRed.value)
+    var sliderSecond = CGFloat(sliderGreen.value)
+    var sliderThird = CGFloat(sliderBlue.value)
+    */
+    
+    
     @IBAction func lsliderDoesRed() {
         
         labelRed.text = String(sliderRed.value)
-        
+        viewMultiColor.backgroundColor = UIColor(
+            red: CGFloat(sliderRed.value),
+            green: CGFloat(sliderGreen.value),
+            blue: CGFloat(sliderBlue.value),
+            alpha: 1)
+       
     }
     
     
     @IBAction func lsliderDoesGreen() {
         
         labelGreen.text = String(sliderGreen.value)
-        
+        viewMultiColor.backgroundColor = UIColor(
+            red: CGFloat(sliderRed.value),
+            green: CGFloat(sliderGreen.value),
+            blue: CGFloat(sliderBlue.value),
+            alpha: 1)
     }
     
     
     @IBAction func lsliderDoesBlue() {
         
         labelBlue.text = String(sliderBlue.value)
-        
+        viewMultiColor.backgroundColor = UIColor(
+            red: CGFloat(sliderRed.value),
+            green: CGFloat(sliderGreen.value),
+            blue: CGFloat(sliderBlue.value),
+            alpha: 1)
     }
     
     
