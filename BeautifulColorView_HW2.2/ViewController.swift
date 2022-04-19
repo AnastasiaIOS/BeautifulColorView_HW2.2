@@ -28,57 +28,44 @@ class ViewController: UIViewController {
         sliderBlue.minimumTrackTintColor = .blue
         
         //Label
-        labelRed.text = String(sliderRed.value)
-        labelBlue.text = String(sliderBlue.value)
-        labelGreen.text = String(sliderGreen.value)
+        labelRed.text = String(format: "%.2f", sliderRed.value)
+        labelBlue.text = String(format: "%.2f", sliderBlue.value)
+        labelGreen.text = String(format: "%.2f", sliderGreen.value)
         
-    
         
         //View
         viewMultiColor.layer.cornerRadius = viewMultiColor.frame.width / 8
-        
-        viewMultiColor.backgroundColor = UIColor(
-            red: CGFloat(sliderRed.value),
-            green: CGFloat(sliderGreen.value),
-            blue: CGFloat(sliderBlue.value),
-            alpha: 1)
+        setColor()
         
     }
     
+
     
     @IBAction func lsliderDoesRed() {
-        
         labelRed.text = String(sliderRed.value)
-        viewMultiColor.backgroundColor = UIColor(
-            red: CGFloat(sliderRed.value),
-            green: CGFloat(sliderGreen.value),
-            blue: CGFloat(sliderBlue.value),
-            alpha: 1)
+        setColor()
        
     }
     
     
     @IBAction func lsliderDoesGreen() {
-        
         labelGreen.text = String(sliderGreen.value)
-        viewMultiColor.backgroundColor = UIColor(
-            red: CGFloat(sliderRed.value),
-            green: CGFloat(sliderGreen.value),
-            blue: CGFloat(sliderBlue.value),
-            alpha: 1)
+        setColor()
     }
     
     
     @IBAction func lsliderDoesBlue() {
-        
         labelBlue.text = String(sliderBlue.value)
+        setColor()
+    }
+    
+    private func setColor() {
+        
         viewMultiColor.backgroundColor = UIColor(
             red: CGFloat(sliderRed.value),
             green: CGFloat(sliderGreen.value),
             blue: CGFloat(sliderBlue.value),
             alpha: 1)
     }
-    
-    
 }
 
