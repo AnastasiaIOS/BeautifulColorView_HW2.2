@@ -23,33 +23,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
-        
-    
-        
-        //Sliders
-        //Red
-        sliderRed.value = 0.5
-        sliderRed.minimumValue = 0
-        sliderRed.maximumValue = 1
         sliderRed.minimumTrackTintColor = .red
-        
-        //Green
-        sliderGreen.value = 0.5
-        sliderGreen.minimumValue = 0
-        sliderGreen.maximumValue = 1
         sliderGreen.minimumTrackTintColor = .green
-        
-        //Blue
-        sliderBlue.value = 0.5
-        sliderBlue.minimumValue = 0
-        sliderBlue.maximumValue = 1
         sliderBlue.minimumTrackTintColor = .blue
         
         //Label
         labelRed.text = String(sliderRed.value)
         labelBlue.text = String(sliderBlue.value)
         labelGreen.text = String(sliderGreen.value)
+        
+    
         
         //View
         viewMultiColor.layer.cornerRadius = viewMultiColor.frame.width / 8
@@ -61,11 +44,6 @@ class ViewController: UIViewController {
             alpha: 1)
         
     }
-/*
-    var sliderFirst = CGFloat(sliderRed.value)
-    var sliderSecond = CGFloat(sliderGreen.value)
-    var sliderThird = CGFloat(sliderBlue.value)
-    */
     
     
     @IBAction func lsliderDoesRed() {
