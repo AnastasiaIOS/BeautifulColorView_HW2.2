@@ -165,10 +165,10 @@
             </objects>
             <point key="canvasLocation" x="1588.4057971014495" y="78.348214285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--First Screen View Controller-->
         <scene sceneID="QwK-Pf-jPl">
             <objects>
-                <viewController id="T9y-ey-aqP" sceneMemberID="viewController">
+                <viewController id="T9y-ey-aqP" customClass="FirstScreenViewController" customModule="BeautifulColorView_HW2_2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fNl-Rz-KsP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
