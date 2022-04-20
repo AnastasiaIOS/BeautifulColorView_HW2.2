@@ -24,7 +24,8 @@ class ViewController: UIViewController {
     
     @IBOutlet var viewMultiColor: UIView!
     
-    let delegate: SetColorForScreenDelegate
+    var delegate: SetColorForScreenDelegate!
+    var viewColor: UIColor!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +74,8 @@ class ViewController: UIViewController {
     
     
     @IBAction func setupColorForScreen() {
-        
+        view.endEditing(true)
+      //  delegate.setColor()
     }
 }
 
