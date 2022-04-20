@@ -18,6 +18,10 @@ class ViewController: UIViewController {
     @IBOutlet var labelBlue: UILabel!
     
     
+    @IBOutlet var textfieldRed: UITextField!
+    @IBOutlet var textfieldGreen: UITextField!
+    @IBOutlet var textfieldBlue: UITextField!
+    
     @IBOutlet var viewMultiColor: UIView!
     
     let delegate: SetColorForScreenDelegate

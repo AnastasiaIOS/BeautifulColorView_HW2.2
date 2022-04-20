@@ -158,6 +158,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="jUL-Rz-gBf"/>
                     <connections>
+                        <outlet property="textfieldBlue" destination="l7q-ep-4WQ" id="ykr-tr-tsb"/>
+                        <outlet property="textfieldGreen" destination="pbY-iY-Q1H" id="x4L-Ke-cXA"/>
+                        <outlet property="textfieldRed" destination="LMK-Y5-0RY" id="s4V-WG-DyQ"/>
                         <outlet property="viewMultiColor" destination="Fo4-aJ-d7p" id="hQy-BX-yaW"/>
                     </connections>
                 </viewController>
