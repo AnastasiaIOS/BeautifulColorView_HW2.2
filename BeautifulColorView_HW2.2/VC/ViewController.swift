@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     
     @IBOutlet var viewMultiColor: UIView!
     
+    let delegate: SetColorForScreenDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
