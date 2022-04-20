@@ -45,33 +45,35 @@ class ViewController: UIViewController {
         
     }
     
-
-    
     @IBAction func lsliderDoesRed() {
         labelRed.text = String(sliderRed.value)
+        textfieldRed.text = String(format: "%.2f", sliderRed.value)
         setColor()
-       
     }
-    
     
     @IBAction func lsliderDoesGreen() {
         labelGreen.text = String(sliderGreen.value)
+        textfieldGreen.text = String(format: "%.2f", sliderGreen.value)
         setColor()
     }
     
-    
     @IBAction func lsliderDoesBlue() {
         labelBlue.text = String(sliderBlue.value)
+        textfieldBlue.text = String(format: "%.2f", sliderBlue.value)
         setColor()
     }
     
     private func setColor() {
-        
         viewMultiColor.backgroundColor = UIColor(
             red: CGFloat(sliderRed.value),
             green: CGFloat(sliderGreen.value),
             blue: CGFloat(sliderBlue.value),
             alpha: 1)
+    }
+    
+    
+    @IBAction func setupColorForScreen() {
+        
     }
 }
 
