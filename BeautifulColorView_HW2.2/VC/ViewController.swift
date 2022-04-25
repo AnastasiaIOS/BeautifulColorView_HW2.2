@@ -39,6 +39,11 @@ class ViewController: UIViewController {
         labelBlue.text = String(format: "%.2f", sliderBlue.value)
         labelGreen.text = String(format: "%.2f", sliderGreen.value)
         
+        //TF
+        textfieldRed.text = labelRed.text
+        textfieldBlue.text = labelBlue.text
+        textfieldGreen.text = labelGreen.text
+        
         
         //View
         viewMultiColor.layer.cornerRadius = viewMultiColor.frame.width / 8
