@@ -33,6 +33,10 @@ class ViewController: UIViewController {
         sliderRed.minimumTrackTintColor = .red
         sliderGreen.minimumTrackTintColor = .green
         
+        textfieldRed.delegate = self
+        textfieldBlue.delegate = self
+        textfieldGreen.delegate = self
+        
         viewMultiColor.backgroundColor = viewColor
         viewMultiColor.layer.cornerRadius = viewMultiColor.frame.width / 8
         
@@ -64,6 +68,13 @@ class ViewController: UIViewController {
         textfieldBlue.text = String(format: "%.2f", sliderBlue.value)
        
     }
+    
+    @IBAction func setupColorForScreen() {
+        view.endEditing(true) // метод, принудит. завершающий                           процесс редактирования
+        delegate.setColor(viewMultiColor.backgroundColor ?? .gray)
+    }
+    
+    
     
     // установка цвета слайдеров
     private func setColorForSliders() {
@@ -97,11 +108,19 @@ class ViewController: UIViewController {
         }
     }
     
-    
-    
-    @IBAction func setupColorForScreen() {
-        view.endEditing(true) // метод, принудит. завершающий                           процесс редактирования
-        delegate.setColor(viewColor)
+    private func setColor() {
+        viewMultiColor.backgroundColor = UIColor(red: CGFloat(sliderRed.value),
+                                                 green: CGFloat(sliderGreen.value),
+                                                 blue: CGFloat(sliderBlue.value),
+                                                 alpha: 1)
     }
+    
+    
+}
+
+
+
+extension ViewController: UITextViewDelegate {
+    
 }
 
