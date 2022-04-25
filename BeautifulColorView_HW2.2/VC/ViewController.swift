@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         
         sliderRed.minimumTrackTintColor = .red
         sliderGreen.minimumTrackTintColor = .green
-        sliderBlue.minimumTrackTintColor = .blue
+        
         
         //Label
         labelRed.text = String(format: "%.2f", sliderRed.value)
