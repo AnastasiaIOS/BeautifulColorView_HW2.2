@@ -25,13 +25,18 @@ class ViewController: UIViewController {
     @IBOutlet var viewMultiColor: UIView!
     
     var delegate: SetColorForScreenDelegate!
-    var viewColor: UIColor!
+    var viewColor: UIColor!  // цвет, который распарсим на составляющие
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         sliderRed.minimumTrackTintColor = .red
         sliderGreen.minimumTrackTintColor = .green
+        
+        //View
+        viewMultiColor.layer.cornerRadius = viewMultiColor.frame.width / 8
+      
+        
         
         
         //Label
@@ -45,28 +50,37 @@ class ViewController: UIViewController {
         textfieldGreen.text = labelGreen.text
         
         
-        //View
-        viewMultiColor.layer.cornerRadius = viewMultiColor.frame.width / 8
-        setColor()
+        
         
     }
     
     @IBAction func lsliderDoesRed() {
+        setColorForSliders()
         labelRed.text = String(sliderRed.value)
         textfieldRed.text = String(format: "%.2f", sliderRed.value)
-        setColor()
+        
     }
     
     @IBAction func lsliderDoesGreen() {
+        setColorForSliders()
         labelGreen.text = String(sliderGreen.value)
         textfieldGreen.text = String(format: "%.2f", sliderGreen.value)
         setColor()
     }
     
     @IBAction func lsliderDoesBlue() {
+        setColorForSliders()
         labelBlue.text = String(sliderBlue.value)
         textfieldBlue.text = String(format: "%.2f", sliderBlue.value)
-        setColor()
+       
+    }
+    
+    // установка цвета слайдеров
+    private func setColorForSliders() {
+        let classColor = CIColor(color: viewColor)
+        sliderRed.value = Float(classColor.red)
+        sliderBlue.value = Float(classColor.blue)
+        sliderGreen.value = Float(classColor.green)
     }
     
     private func setColor() {
