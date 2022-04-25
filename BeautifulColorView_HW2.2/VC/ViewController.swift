@@ -17,14 +17,14 @@ class ViewController: UIViewController {
     @IBOutlet var labelGreen: UILabel!
     @IBOutlet var labelBlue: UILabel!
     
-    
     @IBOutlet var textfieldRed: UITextField!
     @IBOutlet var textfieldGreen: UITextField!
     @IBOutlet var textfieldBlue: UITextField!
     
     @IBOutlet var viewMultiColor: UIView!
     
-    var delegate: SetColorForScreenDelegate!
+    
+    var delegate: SetColorForScreenDelegate! // экземпляр протокола
     var viewColor: UIColor!  // цвет, который распарсим на составляющие
     
     override func viewDidLoad() {
@@ -33,44 +33,34 @@ class ViewController: UIViewController {
         sliderRed.minimumTrackTintColor = .red
         sliderGreen.minimumTrackTintColor = .green
         
-        //View
+        viewMultiColor.backgroundColor = viewColor
         viewMultiColor.layer.cornerRadius = viewMultiColor.frame.width / 8
+        
+        setColorForSliders()
+        setColorForLabels(labelRed, labelBlue, labelGreen)
+        setColorForTextField(textfieldRed, textfieldBlue, textfieldGreen)
       
-        
-        
-        
-        //Label
-        labelRed.text = String(format: "%.2f", sliderRed.value)
-        labelBlue.text = String(format: "%.2f", sliderBlue.value)
-        labelGreen.text = String(format: "%.2f", sliderGreen.value)
-        
-        //TF
-        textfieldRed.text = labelRed.text
-        textfieldBlue.text = labelBlue.text
-        textfieldGreen.text = labelGreen.text
-        
-        
-        
-        
+    
+// добавить функции по установке цвета слайдеров, лейблов и тф
     }
     
     @IBAction func lsliderDoesRed() {
         setColorForSliders()
-        labelRed.text = String(sliderRed.value)
+        labelRed.text = String(format: "%.2f", sliderRed.value)
         textfieldRed.text = String(format: "%.2f", sliderRed.value)
         
     }
     
     @IBAction func lsliderDoesGreen() {
         setColorForSliders()
-        labelGreen.text = String(sliderGreen.value)
+        labelGreen.text = String(format: "%.2f", sliderGreen.value)
         textfieldGreen.text = String(format: "%.2f", sliderGreen.value)
-        setColor()
+        
     }
     
     @IBAction func lsliderDoesBlue() {
         setColorForSliders()
-        labelBlue.text = String(sliderBlue.value)
+        labelBlue.text = String(format: "%.2f", sliderBlue.value)
         textfieldBlue.text = String(format: "%.2f", sliderBlue.value)
        
     }
@@ -83,18 +73,35 @@ class ViewController: UIViewController {
         sliderGreen.value = Float(classColor.green)
     }
     
-    private func setColor() {
-        viewMultiColor.backgroundColor = UIColor(
-            red: CGFloat(sliderRed.value),
-            green: CGFloat(sliderGreen.value),
-            blue: CGFloat(sliderBlue.value),
-            alpha: 1)
+    private func setColorForLabels(_ labels: UILabel...) {
+        for label in labels {
+            if label == labelRed {
+                labelRed.text = String(format: "%.2f", sliderRed.value)
+            } else if label == labelBlue {
+                labelBlue.text = String(format: "%.2f", sliderBlue.value)
+            } else if label == labelGreen {
+                labelGreen.text = String(format: "%.2f", sliderGreen.value)
+            }
+        }
+    }
+    
+    private func setColorForTextField(_ textfields: UITextField...) {
+        for textfield in textfields {
+            if textfield == textfieldRed {
+                textfieldRed.text = String(format: "%.2f", sliderRed.value)
+            } else if textfield == textfieldBlue {
+                textfieldBlue.text = String(format: "%.2f", sliderBlue.value)
+            } else if textfield == textfieldGreen {
+                textfieldGreen.text = String(format: "%.2f", sliderGreen.value)
+            }
+        }
     }
     
     
+    
     @IBAction func setupColorForScreen() {
-        view.endEditing(true)
-      //  delegate.setColor()
+        view.endEditing(true) // метод, принудит. завершающий                           процесс редактирования
+        delegate.setColor(viewColor)
     }
 }
 
