@@ -33,9 +33,9 @@ class ViewController: UIViewController {
         sliderRed.minimumTrackTintColor = .red
         sliderGreen.minimumTrackTintColor = .green
         
-        textfieldRed.delegate = self
-        textfieldBlue.delegate = self
-        textfieldGreen.delegate = self
+        //textfieldRed.delegate = self
+       // textfieldBlue.delegate = self
+      //  textfieldGreen.delegate = self
         
         viewMultiColor.backgroundColor = viewColor
         viewMultiColor.layer.cornerRadius = viewMultiColor.frame.width / 8
@@ -51,6 +51,7 @@ class ViewController: UIViewController {
         setColorForSliders()
         labelRed.text = String(format: "%.2f", sliderRed.value)
         textfieldRed.text = String(format: "%.2f", sliderRed.value)
+        setColor()
         
     }
     
@@ -58,6 +59,7 @@ class ViewController: UIViewController {
         setColorForSliders()
         labelGreen.text = String(format: "%.2f", sliderGreen.value)
         textfieldGreen.text = String(format: "%.2f", sliderGreen.value)
+        setColor()
         
     }
     
@@ -65,15 +67,17 @@ class ViewController: UIViewController {
         setColorForSliders()
         labelBlue.text = String(format: "%.2f", sliderBlue.value)
         textfieldBlue.text = String(format: "%.2f", sliderBlue.value)
+        setColor()
        
     }
     
     @IBAction func setupColorForScreen() {
-        view.endEditing(true) // метод, принудит. завершающий                           процесс редактирования
+        view.endEditing(true) // метод, принудит. завершающий редактирование
         delegate.setColor(viewMultiColor.backgroundColor ?? .gray)
+        dismiss(animated: true)
     }
     
-    
+    // MARK: PRIVATE FUNC
     
     // установка цвета слайдеров
     private func setColorForSliders() {
@@ -86,11 +90,11 @@ class ViewController: UIViewController {
     private func setColorForLabels(_ labels: UILabel...) {
         for label in labels {
             if label == labelRed {
-                labelRed.text = String(format: "%.2f", sliderRed.value)
+                labelRed.text = doString(slider: sliderRed)
             } else if label == labelBlue {
-                labelBlue.text = String(format: "%.2f", sliderBlue.value)
+                labelBlue.text = doString(slider: sliderBlue)
             } else if label == labelGreen {
-                labelGreen.text = String(format: "%.2f", sliderGreen.value)
+                labelGreen.text = doString(slider: sliderGreen)
             }
         }
     }
@@ -98,11 +102,11 @@ class ViewController: UIViewController {
     private func setColorForTextField(_ textfields: UITextField...) {
         for textfield in textfields {
             if textfield == textfieldRed {
-                textfieldRed.text = String(format: "%.2f", sliderRed.value)
+                textfieldRed.text = doString(slider: sliderRed)
             } else if textfield == textfieldBlue {
-                textfieldBlue.text = String(format: "%.2f", sliderBlue.value)
+                textfieldBlue.text = doString(slider: sliderBlue)
             } else if textfield == textfieldGreen {
-                textfieldGreen.text = String(format: "%.2f", sliderGreen.value)
+                textfieldGreen.text = doString(slider: sliderGreen)
             }
         }
     }
@@ -114,12 +118,19 @@ class ViewController: UIViewController {
                                                  alpha: 1)
     }
     
+    private func doString(slider: UISlider) -> String {
+        String(format: "%.2f", slider.value)
+    }
     
 }
 
 
 
 extension ViewController: UITextViewDelegate {
-    
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let valueTF = textField.text else {return}
+        guard let numberValueTF = Float(valueTF, format: "%.2f") else {return}
+    }
 }
 
