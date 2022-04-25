@@ -40,12 +40,11 @@ class ViewController: UIViewController {
         viewMultiColor.backgroundColor = viewColor
         viewMultiColor.layer.cornerRadius = viewMultiColor.frame.width / 8
         
+        //установка цвета слайдеров, значений labels, tf, переданного с 1 экрана
         setColorForSliders()
         setColorForLabels(labelRed, labelBlue, labelGreen)
         setColorForTextField(textfieldRed, textfieldBlue, textfieldGreen)
       
-    
-// добавить функции по установке цвета слайдеров, лейблов и тф
     }
     
     @IBAction func lsliderDoesRed() {
