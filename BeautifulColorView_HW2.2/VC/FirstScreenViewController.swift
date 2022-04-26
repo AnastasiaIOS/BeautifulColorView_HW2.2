@@ -7,6 +7,8 @@
 
 import UIKit
 
+// При запуске приложения отображается черный экран((Не понимаю почему так, помогите пожалуйста
+
 protocol SetColorForScreenDelegate {
     func setColor(_ color: UIColor)
 }

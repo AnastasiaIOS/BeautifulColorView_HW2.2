@@ -140,7 +140,6 @@ extension ViewController: UITextViewDelegate {
         }
         
         setColor()
-        
     }
     
 }
