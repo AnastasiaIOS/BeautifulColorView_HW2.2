@@ -49,26 +49,23 @@ class ViewController: UIViewController {
     
     @IBAction func lsliderDoesRed() {
         setColorForSliders()
-        labelRed.text = String(format: "%.2f", sliderRed.value)
-        textfieldRed.text = String(format: "%.2f", sliderRed.value)
+        labelRed.text = doString(slider: sliderRed)
+        textfieldRed.text = labelRed.text
         setColor()
-        
     }
     
     @IBAction func lsliderDoesGreen() {
         setColorForSliders()
-        labelGreen.text = String(format: "%.2f", sliderGreen.value)
-        textfieldGreen.text = String(format: "%.2f", sliderGreen.value)
+        labelGreen.text = doString(slider: sliderGreen)
+        textfieldGreen.text = labelGreen.text
         setColor()
-        
     }
     
     @IBAction func lsliderDoesBlue() {
         setColorForSliders()
-        labelBlue.text = String(format: "%.2f", sliderBlue.value)
-        textfieldBlue.text = String(format: "%.2f", sliderBlue.value)
+        labelBlue.text = doString(slider: sliderBlue)
+        textfieldBlue.text = labelBlue.text
         setColor()
-       
     }
     
     @IBAction func setupColorForScreen() {
@@ -141,6 +138,10 @@ extension ViewController: UITextViewDelegate {
             sliderGreen.value = Float(valueTF) ?? 1
             labelGreen.text = doString(slider: sliderGreen)
         }
+        
+        setColor()
+        
     }
+    
 }
 

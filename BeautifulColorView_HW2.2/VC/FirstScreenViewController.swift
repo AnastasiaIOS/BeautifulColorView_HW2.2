@@ -12,12 +12,6 @@ protocol SetColorForScreenDelegate {
 }
 
 class FirstScreenViewController: UIViewController {
-
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let navigationVC = segue.destination as? UINavigationController else {return}
@@ -25,11 +19,11 @@ class FirstScreenViewController: UIViewController {
         colorVC.viewColor = view.backgroundColor
         colorVC.delegate = self
     }
-    
 }
 
 extension FirstScreenViewController: SetColorForScreenDelegate {
     func setColor(_ color: UIColor) {
         view.backgroundColor = color
+        
     }
 }
