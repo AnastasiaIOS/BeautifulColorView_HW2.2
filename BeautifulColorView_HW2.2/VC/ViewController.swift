@@ -130,7 +130,17 @@ extension ViewController: UITextViewDelegate {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let valueTF = textField.text else {return}
-        guard let numberValueTF = valueTF else {return}
+       
+        if textField == textfieldRed {
+            sliderRed.value = Float(valueTF) ?? 1
+            labelRed.text = doString(slider: sliderRed)
+        } else if textField == textfieldBlue {
+            sliderBlue.value = Float(valueTF) ?? 1
+            labelBlue.text = doString(slider: sliderBlue)
+        } else if textField == textfieldGreen {
+            sliderGreen.value = Float(valueTF) ?? 1
+            labelGreen.text = doString(slider: sliderGreen)
+        }
     }
 }
 
