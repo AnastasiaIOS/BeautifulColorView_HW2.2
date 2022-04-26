@@ -130,7 +130,7 @@ extension ViewController: UITextViewDelegate {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let valueTF = textField.text else {return}
-        guard let numberValueTF = Float(valueTF, format: "%.2f") else {return}
+        guard let numberValueTF = valueTF else {return}
     }
 }
 

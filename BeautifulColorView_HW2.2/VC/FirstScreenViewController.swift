@@ -20,9 +20,10 @@ class FirstScreenViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let colorVC = segue.destination as? ViewController else {return}
-        colorVC.delegate = self
+        guard let navigationVC = segue.destination as? UINavigationController else {return}
+        guard let colorVC = navigationVC.topViewController as? ViewController else {return}
         colorVC.viewColor = view.backgroundColor
+        colorVC.delegate = self
     }
     
 }
